@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Grammar — Continuous Forms</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f5f5;
+    color: #111;
+    padding: 20px 16px 60px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 28px; }
+
+  .section { margin-bottom: 36px; }
+
+  .section-header {
+    background: #111; color: #fff;
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .section-body {
+    border: 2px solid #111; border-top: none; padding: 16px;
+  }
+
+  .example-card {
+    border: 2px dashed #aaa; padding: 12px 14px; margin-bottom: 16px;
+    font-size: 14px; line-height: 1.7;
+  }
+  .example-card .label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #555; margin-bottom: 6px;
+  }
+  .example-sentence { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .example-translation { font-size: 13px; color: #555; font-style: italic; }
+  .rule-line {
+    font-size: 13px; color: #333; margin-top: 8px;
+    padding-top: 8px; border-top: 1px solid #ddd; line-height: 1.6;
+  }
+
+  .exercise { margin-bottom: 20px; }
+  .exercise-prompt { font-size: 14px; margin-bottom: 10px; line-height: 1.6; }
+
+  .options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+
+  .option-btn {
+    padding: 8px 16px; border: 2px solid #111; background: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; border-radius: 2px; transition: background 0.15s;
+  }
+  .option-btn:hover { background: #f0f0f0; }
+  .option-btn.correct { background: #111; color: #fff; border-color: #111; }
+  .option-btn.wrong { background: #fff; color: #aaa; border-color: #aaa; text-decoration: line-through; }
+  .option-btn.disabled { cursor: default; }
+
+  .feedback {
+    font-size: 13px; line-height: 1.5; padding: 8px 12px;
+    border-left: 4px solid #111; display: none; margin-top: 4px;
+  }
+  .feedback.show { display: block; }
+  .feedback.no { border-color: #aaa; color: #555; }
+
+  .divider { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+
+  .progress-bar-wrap {
+    background: #ddd; height: 6px; border-radius: 3px;
+    margin-bottom: 28px; overflow: hidden;
+  }
+  .progress-bar {
+    background: #111; height: 6px; border-radius: 3px;
+    width: 0%; transition: width 0.4s ease;
+  }
+  .progress-label { font-size: 12px; color: #888; margin-bottom: 6px; }
+
+  .reset-btn {
+    display: block; margin: 32px auto 0; padding: 12px 28px;
+    background: #111; color: #fff; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+    cursor: pointer; border-radius: 2px;
+  }
+  .reset-btn:hover { background: #333; }
+
+  .completion-msg {
+    text-align: center; font-size: 16px; font-weight: 700;
+    margin-top: 24px; display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Continuous Forms</h1>
+<p class="subtitle">Click the correct answer. Read the example before each exercise.</p>
+
+<div class="progress-label" id="progress-label">0 / 16 answered</div>
+<div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <div class="section-header">1 — Present Continuous: I am doing</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">Example</div>
+      <div class="example-sentence">"I am reading a book right now."</div>
+      <div class="example-translation">Sto leggendo un libro adesso.</div>
+      <div class="rule-line">Use it for: something happening <strong>right now</strong>, at this moment.<br>
+      Form: <strong>am / is / are + verb -ing</strong></div>
+    </div>
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">It is 3pm. Alex is at the office desk. Which sentence describes what is happening <em>right now</em>?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">Alex is writing an email.</button>
+        <button class="option-btn" onclick="answer(this,1)">Alex writes an email.</button>
+        <button class="option-btn" onclick="answer(this,2)">Alex wrote an email.</button>
+      </div>
+      <div class="feedback" id="fb-0"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Sam is in the middle of an English lesson. Which sentence is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">Sam studied English.</button>
+        <button class="option-btn" onclick="answer(this,1)">Sam is studying English.</button>
+        <button class="option-btn" onclick="answer(this,2)">Sam has studied English.</button>
+      </div>
+      <div class="feedback" id="fb-1"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <div class="section-header">2 — Past Continuous: I was doing</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">Example</div>
+      <div class="example-sentence">"I was cooking dinner when the phone rang."</div>
+      <div class="example-translation">Stavo cucinando quando il telefono ha squillato.</div>
+      <div class="rule-line">Use it for: something that was <strong>in progress at a specific past moment</strong> — often interrupted by another action.<br>
+      Form: <strong>was / were + verb -ing</strong></div>
+    </div>
+
+    <div class="exercise" data-correct="2">
+      <div class="exercise-prompt">Yesterday at 9pm, Maya was at home watching TV. Which sentence describes that moment?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">Maya watched a film.</button>
+        <button class="option-btn" onclick="answer(this,1)">Maya has watched a film.</button>
+        <button class="option-btn" onclick="answer(this,2)">Maya was watching a film.</button>
+      </div>
+      <div class="feedback" id="fb-2"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">Tom and Lena were in a meeting when an unexpected guest arrived. Which sentence is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">Tom and Lena were talking when the guest arrived.</button>
+        <button class="option-btn" onclick="answer(this,1)">Tom and Lena talked when the guest arrived.</button>
+        <button class="option-btn" onclick="answer(this,2)">Tom and Lena have talked when the guest arrived.</button>
+      </div>
+      <div class="feedback" id="fb-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <div class="section-header">3 — Present Perfect Simple: I have done</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">Example</div>
+      <div class="example-sentence">"I have finished the report."</div>
+      <div class="example-translation">Ho finito il report. (il risultato è qui, adesso)</div>
+      <div class="rule-line">Use it for: a <strong>finished action whose result matters now</strong>.<br>
+      Form: <strong>have / has + past participle</strong></div>
+    </div>
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Jordan just finished a project and wants to tell a colleague. Which is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I finished the project.</button>
+        <button class="option-btn" onclick="answer(this,1)">I have finished the project.</button>
+        <button class="option-btn" onclick="answer(this,2)">I was finishing the project.</button>
+      </div>
+      <div class="feedback" id="fb-4"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">Lena has watched a series and wants to recommend it to a friend. Which is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I have watched it — you should too.</button>
+        <button class="option-btn" onclick="answer(this,1)">I watched it — you should too.</button>
+        <button class="option-btn" onclick="answer(this,2)">I was watching it — you should too.</button>
+      </div>
+      <div class="feedback" id="fb-5"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <div class="section-header">4 — Present Perfect Continuous: I have been doing</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">Example</div>
+      <div class="example-sentence">"I have been working hard all day."</div>
+      <div class="example-translation">Ho lavorato duramente tutto il giorno — e sto ancora lavorando, o l'ho appena finito.</div>
+      <div class="rule-line">Use it for: an action that <strong>started in the past and is still going</strong> (or just stopped) — focus on <strong>duration and process</strong>.<br>
+      Form: <strong>have / has + been + verb -ing</strong></div>
+    </div>
+
+    <div class="exercise" data-correct="2">
+      <div class="exercise-prompt">Sam started learning English a few months ago and is still learning. Sam wants to describe this. Which is most natural?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I learned English for a few months.</button>
+        <button class="option-btn" onclick="answer(this,1)">I learn English.</button>
+        <button class="option-btn" onclick="answer(this,2)">I have been learning English for a few months.</button>
+      </div>
+      <div class="feedback" id="fb-6"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Alex started reading a book this morning and it is now evening — still reading. Which sentence fits?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I read this book.</button>
+        <button class="option-btn" onclick="answer(this,1)">I have been reading this book since this morning.</button>
+        <button class="option-btn" onclick="answer(this,2)">I was reading this book.</button>
+      </div>
+      <div class="feedback" id="fb-7"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <div class="section-header">5 — For vs Since</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">The difference</div>
+      <div class="example-sentence"><strong>for</strong> + duration → how long?</div>
+      <div class="example-translation">"I have been learning English <strong>for</strong> six months." — per sei mesi</div>
+      <div style="margin-top:10px;">
+        <div class="example-sentence"><strong>since</strong> + starting point → since when?</div>
+        <div class="example-translation">"I have been learning English <strong>since</strong> January." — da gennaio</div>
+      </div>
+      <div class="rule-line">
+        <strong>for</strong> → a period of time: six months, two years, a long time, ages<br>
+        <strong>since</strong> → a point in time: January, 2023, last year, I was a child
+      </div>
+    </div>
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">Maya started a new job in March. Choose:<br><em>"I have been working here _____ March."</em></div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">since</button>
+        <button class="option-btn" onclick="answer(this,1)">for</button>
+      </div>
+      <div class="feedback" id="fb-8"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Tom has lived in the same city for twenty years. Choose:<br><em>"I have been living here _____ twenty years."</em></div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">since</button>
+        <button class="option-btn" onclick="answer(this,1)">for</button>
+      </div>
+      <div class="feedback" id="fb-9"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">A group of researchers has been studying the same problem for decades. Choose:<br><em>"Researchers have been working on this _____ decades."</em></div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">for</button>
+        <button class="option-btn" onclick="answer(this,1)">since</button>
+      </div>
+      <div class="feedback" id="fb-10"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Jordan and Sam have been friends since childhood. Choose:<br><em>"We have been friends _____ we were children."</em></div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">for</button>
+        <button class="option-btn" onclick="answer(this,1)">since</button>
+      </div>
+      <div class="feedback" id="fb-11"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <div class="section-header">6 — Putting it all together</div>
+  <div class="section-body">
+    <div class="example-card">
+      <div class="label">Quick reminder</div>
+      <div class="rule-line">
+        <strong>I am doing</strong> → right now, this moment<br>
+        <strong>I was doing</strong> → in progress at a specific past moment<br>
+        <strong>I have done</strong> → finished, result matters now<br>
+        <strong>I have been doing</strong> → started in past, still going — focus on duration
+      </div>
+    </div>
+
+    <div class="exercise" data-correct="2">
+      <div class="exercise-prompt">Lena started a course last month and is still attending. She tells a friend. Which is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I attended a course last month.</button>
+        <button class="option-btn" onclick="answer(this,1)">I was attending a course.</button>
+        <button class="option-btn" onclick="answer(this,2)">I have been attending a course since last month.</button>
+      </div>
+      <div class="feedback" id="fb-12"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="1">
+      <div class="exercise-prompt">Tom finished reading a book this morning. He is talking about it now. Which is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">I was reading the book this morning.</button>
+        <button class="option-btn" onclick="answer(this,1)">I have read the book — it was great.</button>
+        <button class="option-btn" onclick="answer(this,2)">I have been reading the book this morning.</button>
+      </div>
+      <div class="feedback" id="fb-13"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="0">
+      <div class="exercise-prompt">Alex and Maya were in a meeting when their manager walked in. Which is correct?</div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">Alex and Maya were discussing the project when the manager arrived.</button>
+        <button class="option-btn" onclick="answer(this,1)">Alex and Maya have discussed the project when the manager arrived.</button>
+        <button class="option-btn" onclick="answer(this,2)">Alex and Maya discussed the project when the manager arrived.</button>
+      </div>
+      <div class="feedback" id="fb-14"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="exercise" data-correct="2">
+      <div class="exercise-prompt">Jordan has been learning a language for two years and feels more confident now. Complete:<br><em>"I _____ this language _____ two years and I feel much better now."</em></div>
+      <div class="options">
+        <button class="option-btn" onclick="answer(this,0)">studied / for</button>
+        <button class="option-btn" onclick="answer(this,1)">am studying / since</button>
+        <button class="option-btn" onclick="answer(this,2)">have been studying / for</button>
+      </div>
+      <div class="feedback" id="fb-15"></div>
+    </div>
+  </div>
+</div>
+
+<div class="completion-msg" id="completion-msg">✓ All done! Well done.</div>
+<button class="reset-btn" onclick="resetAll()">Start again</button>
+
+<script>
+  const feedbacks = {
+    0:  { ok: "✓ Correct! Present continuous — something happening right now.", no: "Not quite. We need present continuous for right now: 'Alex is writing an email.'" },
+    1:  { ok: "✓ Correct! Present continuous — the lesson is in progress at this moment.", no: "Not quite. The lesson is happening now — present continuous: 'Sam is studying English.'" },
+    2:  { ok: "✓ Correct! Past continuous — something in progress at a specific past moment.", no: "Not quite. At 9pm yesterday is a specific past moment — past continuous: 'Maya was watching a film.'" },
+    3:  { ok: "✓ Correct! Past continuous shows what was in progress when something else happened.", no: "Not quite. Past continuous for the action in progress: 'Tom and Lena were talking when the guest arrived.'" },
+    4:  { ok: "✓ Correct! Present perfect — finished, but the result (the project is done) matters now.", no: "Not quite. The result matters now — present perfect: 'I have finished the project.'" },
+    5:  { ok: "✓ Correct! Present perfect — the experience connects to the present recommendation.", no: "Not quite. The experience connects to now — present perfect: 'I have watched it.'" },
+    6:  { ok: "✓ Correct! Present perfect continuous — started in the past, still ongoing, with duration.", no: "Not quite. Still learning, focus on duration — present perfect continuous: 'I have been learning English for a few months.'" },
+    7:  { ok: "✓ Correct! Present perfect continuous + since for the starting point.", no: "Not quite. Started this morning, still going — present perfect continuous: 'I have been reading this book since this morning.'" },
+    8:  { ok: "✓ Correct! Since + starting point (March).", no: "Not quite. March is a specific moment in time — use 'since': since March." },
+    9:  { ok: "✓ Correct! For + duration (twenty years).", no: "Not quite. Twenty years is a period of time — use 'for': for twenty years." },
+    10: { ok: "✓ Correct! For + duration (decades).", no: "Not quite. 'Decades' is a period of time — use 'for': for decades." },
+    11: { ok: "✓ Correct! Since + starting point (we were children).", no: "Not quite. 'We were children' is a starting point in time — use 'since'." },
+    12: { ok: "✓ Correct! Present perfect continuous + since for an ongoing action with a starting point.", no: "Not quite. Still attending, started last month — present perfect continuous + since: 'I have been attending a course since last month.'" },
+    13: { ok: "✓ Correct! Present perfect simple — finished this morning, talking about the result now.", no: "Not quite. Finished (completed), result matters now — present perfect: 'I have read the book.'" },
+    14: { ok: "✓ Correct! Past continuous — in progress when something else happened.", no: "Not quite. Past continuous for what was in progress: 'Alex and Maya were discussing the project when the manager arrived.'" },
+    15: { ok: "✓ Correct! Present perfect continuous (still learning) + for (duration).", no: "Not quite. Still learning (ongoing) + two years is a duration — 'I have been studying this language for two years.'" },
+  };
+
+  let answered = 0;
+  const total = 16;
+
+  function answer(btn, chosen) {
+    const exercise = btn.closest('.exercise');
+    if (exercise.dataset.done) return;
+    exercise.dataset.done = true;
+    const correct = parseInt(exercise.dataset.correct);
+    const allBtns = exercise.querySelectorAll('.option-btn');
+    const fbIndex = Array.from(document.querySelectorAll('.exercise')).indexOf(exercise);
+    const fb = document.getElementById('fb-' + fbIndex);
+    allBtns.forEach((b, i) => {
+      b.classList.add('disabled');
+      if (i === correct) b.classList.add('correct');
+      else if (b === btn && chosen !== correct) b.classList.add('wrong');
+    });
+    fb.textContent = chosen === correct ? feedbacks[fbIndex].ok : feedbacks[fbIndex].no;
+    fb.className = 'feedback show' + (chosen === correct ? '' : ' no');
+    answered++;
+    document.getElementById('progress-label').textContent = answered + ' / ' + total + ' answered';
+    document.getElementById('progress-bar').style.width = (answered / total * 100) + '%';
+    if (answered === total) document.getElementById('completion-msg').style.display = 'block';
+  }
+
+  function resetAll() {
+    answered = 0;
+    document.getElementById('progress-label').textContent = '0 / ' + total + ' answered';
+    document.getElementById('progress-bar').style.width = '0%';
+    document.getElementById('completion-msg').style.display = 'none';
+    document.querySelectorAll('.exercise').forEach(ex => delete ex.dataset.done);
+    document.querySelectorAll('.option-btn').forEach(btn => btn.className = 'option-btn');
+    document.querySelectorAll('.feedback').forEach(fb => fb.className = 'feedback');
+    window.scrollTo(0, 0);
+  }
+</script>
+</body>
+</html>
