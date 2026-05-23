@@ -11,98 +11,244 @@
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: #f5f5f5;
-    color: #111;
-    padding: 20px 16px 60px;
+    background: #fdf6ee;
+    color: #2b1d0e;
+    padding: 0 0 80px;
     max-width: 680px;
     margin: 0 auto;
   }
 
-  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-  .subtitle { font-size: 13px; color: #666; margin-bottom: 28px; }
+  /* STICKY HEADER */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    background: #fff8f0;
+    border-bottom: 2px solid #e8d5b7;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 100;
+  }
 
-  .section { margin-bottom: 36px; }
+  .sticky-header h1 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2b1d0e;
+    white-space: nowrap;
+  }
+
+  .progress-wrap {
+    flex: 1;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    color: #9a7a5a;
+    margin-bottom: 4px;
+  }
+
+  .progress-bar-wrap {
+    background: #e8d5b7;
+    height: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    background: #c07a3a;
+    height: 7px;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  .reset-btn {
+    padding: 8px 16px;
+    background: #2b1d0e;
+    color: #fff;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .reset-btn:hover { background: #4a3020; }
+
+  /* MAIN CONTENT */
+  .content { padding: 24px 20px; }
+
+  .subtitle { font-size: 13px; color: #9a7a5a; margin-bottom: 28px; }
+
+  /* SECTION */
+  .section { margin-bottom: 32px; }
 
   .section-header {
-    background: #111; color: #fff;
-    padding: 10px 16px; font-size: 13px; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
+    background: #c07a3a;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 8px 8px 0 0;
   }
 
   .section-body {
-    border: 2px solid #111; border-top: none; padding: 16px;
+    background: #fff;
+    border: 2px solid #e8d5b7;
+    border-top: none;
+    padding: 18px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
 
+  /* EXAMPLE CARD */
   .example-card {
-    border: 2px dashed #aaa; padding: 12px 14px; margin-bottom: 16px;
-    font-size: 14px; line-height: 1.7;
+    background: #fdf6ee;
+    border: 1.5px solid #e8d5b7;
+    border-radius: 6px;
+    padding: 13px 15px;
+    margin-bottom: 18px;
+    line-height: 1.7;
   }
+
   .example-card .label {
-    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: #555; margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c07a3a;
+    margin-bottom: 6px;
   }
-  .example-sentence { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-  .example-translation { font-size: 13px; color: #555; font-style: italic; }
+
+  .example-sentence {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2b1d0e;
+    margin-bottom: 4px;
+  }
+
+  .example-translation {
+    font-size: 13px;
+    color: #7a5a3a;
+    font-style: italic;
+  }
+
   .rule-line {
-    font-size: 13px; color: #333; margin-top: 8px;
-    padding-top: 8px; border-top: 1px solid #ddd; line-height: 1.6;
+    font-size: 13px;
+    color: #4a3020;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e8d5b7;
+    line-height: 1.7;
   }
 
-  .exercise { margin-bottom: 20px; }
-  .exercise-prompt { font-size: 14px; margin-bottom: 10px; line-height: 1.6; }
+  /* EXERCISE */
+  .exercise { margin-bottom: 22px; }
 
-  .options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .exercise-prompt {
+    font-size: 14px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #2b1d0e;
+  }
+
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
 
   .option-btn {
-    padding: 8px 16px; border: 2px solid #111; background: #fff;
-    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
-    cursor: pointer; border-radius: 2px; transition: background 0.15s;
+    padding: 9px 18px;
+    border: 2px solid #c07a3a;
+    background: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2b1d0e;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.15s;
   }
-  .option-btn:hover { background: #f0f0f0; }
-  .option-btn.correct { background: #111; color: #fff; border-color: #111; }
-  .option-btn.wrong { background: #fff; color: #aaa; border-color: #aaa; text-decoration: line-through; }
+
+  .option-btn:hover { background: #fdf0e0; }
+
+  .option-btn.correct {
+    background: #c07a3a;
+    color: #fff;
+    border-color: #c07a3a;
+  }
+
+  .option-btn.wrong {
+    background: #fff;
+    color: #c4a882;
+    border-color: #e8d5b7;
+    text-decoration: line-through;
+  }
+
   .option-btn.disabled { cursor: default; }
 
+  /* FEEDBACK */
   .feedback {
-    font-size: 13px; line-height: 1.5; padding: 8px 12px;
-    border-left: 4px solid #111; display: none; margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: none;
+    margin-top: 6px;
   }
+
   .feedback.show { display: block; }
-  .feedback.no { border-color: #aaa; color: #555; }
+  .feedback.ok { background: #f0f9f0; border-left: 4px solid #5a9a5a; color: #2b4a2b; }
+  .feedback.no { background: #fdf4ee; border-left: 4px solid #c07a3a; color: #7a4a2a; }
 
-  .divider { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
-
-  .progress-bar-wrap {
-    background: #ddd; height: 6px; border-radius: 3px;
-    margin-bottom: 28px; overflow: hidden;
+  .divider {
+    border: none;
+    border-top: 1px solid #f0e4d0;
+    margin: 20px 0;
   }
-  .progress-bar {
-    background: #111; height: 6px; border-radius: 3px;
-    width: 0%; transition: width 0.4s ease;
-  }
-  .progress-label { font-size: 12px; color: #888; margin-bottom: 6px; }
 
-  .reset-btn {
-    display: block; margin: 32px auto 0; padding: 12px 28px;
-    background: #111; color: #fff; border: none;
-    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
-    cursor: pointer; border-radius: 2px;
-  }
-  .reset-btn:hover { background: #333; }
-
+  /* COMPLETION */
   .completion-msg {
-    text-align: center; font-size: 16px; font-weight: 700;
-    margin-top: 24px; display: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #c07a3a;
+    margin: 24px 0 8px;
+    display: none;
+  }
+
+  .completion-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #9a7a5a;
+    display: none;
+    margin-bottom: 16px;
   }
 </style>
 </head>
 <body>
 
-<h1>Continuous Forms</h1>
-<p class="subtitle">Click the correct answer. Read the example before each exercise.</p>
+<!-- STICKY HEADER -->
+<div class="sticky-header">
+  <h1>Continuous Forms</h1>
+  <div class="progress-wrap">
+    <div class="progress-label" id="progress-label">0 / 16</div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+  </div>
+  <button class="reset-btn" onclick="resetAll()">↺ Start again</button>
+</div>
 
-<div class="progress-label" id="progress-label">0 / 16 answered</div>
-<div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+<div class="content">
+<p class="subtitle">Click the correct answer. Read the example before each exercise.</p>
 
 <!-- SECTION 1 -->
 <div class="section">
@@ -372,8 +518,10 @@
   </div>
 </div>
 
-<div class="completion-msg" id="completion-msg">✓ All done! Well done.</div>
-<button class="reset-btn" onclick="resetAll()">Start again</button>
+<div class="completion-msg" id="completion-msg">✓ All done! Well done. 🎉</div>
+<div class="completion-sub" id="completion-sub">Press ↺ Start again to try once more.</div>
+
+</div><!-- end .content -->
 
 <script>
   const feedbacks = {
@@ -412,18 +560,22 @@
       else if (b === btn && chosen !== correct) b.classList.add('wrong');
     });
     fb.textContent = chosen === correct ? feedbacks[fbIndex].ok : feedbacks[fbIndex].no;
-    fb.className = 'feedback show' + (chosen === correct ? '' : ' no');
+    fb.className = 'feedback show' + (chosen === correct ? ' ok' : ' no');
     answered++;
-    document.getElementById('progress-label').textContent = answered + ' / ' + total + ' answered';
+    document.getElementById('progress-label').textContent = answered + ' / ' + total;
     document.getElementById('progress-bar').style.width = (answered / total * 100) + '%';
-    if (answered === total) document.getElementById('completion-msg').style.display = 'block';
+    if (answered === total) {
+      document.getElementById('completion-msg').style.display = 'block';
+      document.getElementById('completion-sub').style.display = 'block';
+    }
   }
 
   function resetAll() {
     answered = 0;
-    document.getElementById('progress-label').textContent = '0 / ' + total + ' answered';
+    document.getElementById('progress-label').textContent = '0 / ' + total;
     document.getElementById('progress-bar').style.width = '0%';
     document.getElementById('completion-msg').style.display = 'none';
+    document.getElementById('completion-sub').style.display = 'none';
     document.querySelectorAll('.exercise').forEach(ex => delete ex.dataset.done);
     document.querySelectorAll('.option-btn').forEach(btn => btn.className = 'option-btn');
     document.querySelectorAll('.feedback').forEach(fb => fb.className = 'feedback');
